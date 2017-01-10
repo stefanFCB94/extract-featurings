@@ -1,22 +1,34 @@
 var gulp = require('gulp');
+var mocha = require('gulp-mocha');
 var ts = require('gulp-typescript');
+var merge = require('merge2');
+var runSeq = require('run-sequence');
 
 var tsProject = ts.createProject('tsconfig.json');
 
-gulp.task('scripts', function() {
-    var tsResult = gulp.src(['src/**/*.ts', '!src/**/*.spec.ts']) // or tsProject.src()
-        .pipe(tsProject());
-
-    return tsResult.js.pipe(gulp.dest('dist'));
+gulp.task('test', function() {
+	gulp.src('dist/test/**/*.js', { read: false})
+		.pipe(mocha({ reporter: 'spec' }));
 });
 
-gulp.task('test', ['scripts'], function() {
-    var tsResult = gulp.src('src/**/*.spec.ts') // or tsProject.src()
-        .pipe(tsProject());
+// Compile all Prod and Test-Files
+gulp.task('compile', function() {
+	var tsResult = gulp.src('src/**/*.ts')
+		.pipe(tsProject());
 
-    return tsResult.js.pipe(gulp.dest('dist'));
+	return merge([
+		tsResult.js.pipe(gulp.dest('dist')),
+		tsResult.dts.pipe(gulp.dest('dist'))
+	]);
 });
+
+// Build-Task
+gulp.task('build', function() {
+	runSeq('compile', 'test');
+});
+
+
 
 gulp.task('watch', function() {
-	gulp.watch('src/**/*.ts', ['test']);
+	gulp.watch('src/**/*.ts', ['build']);
 });
