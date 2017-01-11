@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import * as feat from '../lib/index';
+import * as mocha from 'mocha';
 
 describe('Check different combinations for syntax "title (feat. a1, a2 & a3)"', () => {
 
