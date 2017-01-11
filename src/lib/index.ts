@@ -12,7 +12,7 @@ export interface Featuring {
 // Input: Test (feat. Testartist, Testartist2  & Testartist3)
 // Output: { title: 'Test', feat: [ 'Testartist', 'Testartist2', 'Testartist3' ] }
 export function readFeaturing(title: string): Featuring {
-	if ( title == null ) return { title: '', feat: [] };
+	if ( title == null ) return { title: undefined, feat: [] };
 
 	const featRegEx: RegExp = /\(\s*feat\.?\s*([^\)]+)\s*\)/i;
 	const feats: RegExpExecArray = featRegEx.exec(title);
