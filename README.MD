@@ -4,7 +4,7 @@ Extract song featurings from a title, which has the format "Songtitle (feat. art
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Installing
 
@@ -15,25 +15,25 @@ Install the module with npm to use it in your project.
 npm install --production extract-featurings
 ```
 
-To change the code or run test of the module you can install it with its development dependencies:
+To change the code or run tests of the module you can install it with its development dependencies:
 ```
 npm install extract-featurings
 ```
 
 
-After installing the module can be used the following way:
+After installing, the module can be used the following way:
 ```typescript
-import * as feat from 'extract-faturings';
+import {Featuring, readFeaturing} from 'extract-faturings';
 
 const title: string = 'Title (feat. artist1, artist2 & artist3)';
 
 // Extract the featurings from the song title
-const featurings: Featuring = feat.readFeaturing(title);
+const featurings: Featuring = readFeaturing(title);
 
 // Logs the following result:
 // featurings = {
-//		title: 'Title',
-//		feat: [ 'artist1', 'artist2', 'artist3' ]
+//	   title: 'Title',
+//	   feat: [ 'artist1', 'artist2', 'artist3' ]
 // };
 console.log(featurings);
 ```
@@ -41,7 +41,7 @@ console.log(featurings);
 ## Testing the module
 
 To test the module you can use the built in tests.
-For testing the frameworks mocha and chai are used. To check the code coverage the framework istanbul is used.
+For testing, the frameworks mocha and chai are used. To check the code coverage the framework istanbul is used.
 
 To run the test install all development dependencies, with following command:
 
@@ -58,11 +58,11 @@ These test check different combinations of title and embeded featurings and if t
 
 ## Versioning
 
-I use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+I use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/stefanFCB94/extract-featurings).
 
 ## Authors
 
-* **Stefan Läufle** (https://github.com/stefanFCB94)
+* [**Stefan Läufle**](https://github.com/stefanFCB94)
 
 ## License
 
