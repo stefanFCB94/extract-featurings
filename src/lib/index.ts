@@ -14,12 +14,12 @@ export interface Featuring {
 export function readFeaturing(title: string): Featuring {
 	if ( title == null ) return { title: undefined, feat: [] };
 
-	const featRegEx: RegExp = /\(\s*feat\.?\s*([^\)]+)\s*\)/i;
+	const featRegEx: RegExp = /\(\s*feat(\.|uring)?\s*([^\)]+)\s*\)/i;
 	const feats: RegExpExecArray = featRegEx.exec(title);
 
 	// If no featuring string is included the title will be returned like it was
 	// This means no featurings could be found in the title
-	if ( !feats || feats[1] == null ) return { title: title.trim(), feat: [] };
+	if ( !feats || feats[2] == null ) return { title: title.trim(), feat: [] };
 
 	// Featurings found
 	// They will be removed from the title
@@ -29,7 +29,7 @@ export function readFeaturing(title: string): Featuring {
 	const correctedFeaturings: Array<string> = []
 
 	// Featuring must be splited
-	const splitted = feats[1].split(',');
+	const splitted = feats[2].split(',');
 	splitted.forEach((f: string, i: number) => {
 		// The last zu featurings are normally divided by '&'
 		// Split these (if present) in two

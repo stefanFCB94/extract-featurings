@@ -1,6 +1,8 @@
-# Extract Featurings
+# Extract Featurings of a song title
 
-Extract song featurings from a title, which has the format "Songtitle (feat. artist1, artist2 & artist3)".
+Extract song featurings from a title, which has one of the following formats:
+- "Songtitle (feat. artist1, artist2 & artist3)"
+- "Songtitle (featuring artist1, artist2 & artist3)"
 
 ## Getting Started
 
