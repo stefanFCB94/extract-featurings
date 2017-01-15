@@ -16,6 +16,10 @@
     "ID3",
     "Music"
   ],
+  "repository": {
+	  "type": "git",
+	  "url": "https://github.com/stefanFCB94/extract-featurings"
+  },
   "author": "Stefan Läufle",
   "license": "MIT",
   "dependencies": {},
