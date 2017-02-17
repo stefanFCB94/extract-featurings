@@ -17,8 +17,8 @@
     "Music"
   ],
   "repository": {
-	  "type": "git",
-	  "url": "https://github.com/stefanFCB94/extract-featurings"
+    "type": "git",
+    "url": "https://github.com/stefanFCB94/extract-featurings"
   },
   "author": "Stefan Läufle",
   "license": "MIT",
@@ -29,6 +29,7 @@
     "@types/node": "^6.0.58",
     "chai": "^3.5.0",
     "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
     "gulp-istanbul": "^1.1.1",
     "gulp-mocha": "^3.0.1",
     "gulp-sourcemaps": "^2.3.1",
@@ -36,6 +37,7 @@
     "istanbul": "^0.4.5",
     "merge2": "^1.0.3",
     "mocha": "^3.2.0",
+    "mocha-typescript": "^1.0.21",
     "remap-istanbul": "^0.8.4",
     "run-sequence": "^1.2.2",
     "ts-node": "^2.0.0",
