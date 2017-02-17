@@ -1,6 +1,6 @@
 {
   "name": "extract-featurings",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A module to extracts featurings and the plain title from a title",
   "main": "dist/lib/index.js",
   "typings": "dist/lib/index",
