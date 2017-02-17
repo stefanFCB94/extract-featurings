@@ -1,8 +1,12 @@
-# Extract Featurings of a song title
+# Extract artist featurings
 
-Extract song featurings from a title, which has one of the following formats:
+Extract all featurings from a song title, which has one of the following formats:
 - "Songtitle (feat. artist1, artist2 & artist3)"
 - "Songtitle (featuring artist1, artist2 & artist3)"
+
+Extract all featurings from a artist string, which has on of the following formats:
+- "MainArtist feat. FeatArtist1, FeatArtist2 & FeatArtist3"
+- "MainArtist featuring FeatArtist1, FeatArtist2 & FeatArtist3"
 
 ## Getting Started
 
@@ -22,15 +26,16 @@ To change the code or run tests of the module you can install it with its develo
 npm install extract-featurings
 ```
 
+# Examples
 
-After installing, the module can be used the following way:
+Extract featurings from the song title:
 ```typescript
-import {Featuring, readFeaturing} from 'extract-faturings';
+import {TitleFeaturing, readTitleFeaturing} from 'extract-featurings';
 
 const title: string = 'Title (feat. artist1, artist2 & artist3)';
 
 // Extract the featurings from the song title
-const featurings: Featuring = readFeaturing(title);
+const featurings: TitleFeaturing = readTitleFeaturing(title);
 
 // Logs the following result:
 // featurings = {
@@ -39,6 +44,24 @@ const featurings: Featuring = readFeaturing(title);
 // };
 console.log(featurings);
 ```
+
+Extract featurings from the artist string:
+````typescript
+import { ArtistFeaturing, readArtistFeaturing } from 'extract-featurings';
+
+const artist: string 'MainArtist feat. FeatArtist1, FeatArtist2 & FeatArtist3';
+
+// Extract the featurings
+const featurings: ArtistFeaturing = readArtistFeaturing(artist);
+
+// Logs the following result
+// featurings = {
+//      artist: 'MainArtist',
+//      feat: [ 'FeatArtist1', 'FeatArtist2', 'FeatArtist3' ] 
+// };
+console.log(featurings);
+````
+
 
 ## Testing the module
 
