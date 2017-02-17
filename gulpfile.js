@@ -6,12 +6,18 @@ const runSeq = require('run-sequence');
 const istanbul = require('gulp-istanbul');
 const remapIstanbul = require('remap-istanbul/lib/gulpRemapIstanbul');
 const sourcemaps = require('gulp-sourcemaps');
+const clean = require('gulp-clean');
 
 const tsProject = ts.createProject('tsconfig.json');
 
 
+gulp.task('clear_compile_dir', function() {
+	gulp.src('dist', {read: false})
+		.pipe(clean());
+});
+
 // Compile all Prod and Test-Files
-gulp.task('compile', function() {
+gulp.task('compile', ['clear_compile_dir'], function() {
 	const tsResult = gulp.src('src/**/*.ts')
 		.pipe(sourcemaps.init())
 		.pipe(tsProject());
